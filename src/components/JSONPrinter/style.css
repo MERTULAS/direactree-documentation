@@ -1,0 +1,55 @@
+.json-printer {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  border-radius: 4px;
+  padding: 16px;
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  line-height: 1.5;
+  font-size: 14px;
+  color: #333;
+  overflow: auto;
+}
+
+.json-key {
+  color: #0b7285;
+  font-weight: bold;
+}
+
+.json-string {
+  color: #2e7d32;
+}
+
+.json-number {
+  color: #0277bd;
+}
+
+.json-boolean {
+  color: #7b1fa2;
+  font-weight: bold;
+}
+
+.json-null {
+  color: #f44336;
+  font-style: italic;
+}
+
+.json-comma {
+  color: #757575;
+}
+
+.json-colon {
+  color: #757575;
+}
+
+.json-indent {
+  margin-left: 24px;
+}
+
+.json-property {
+  line-height: 1.6;
+}
+
+.json-object, .json-array {
+  color: #333;
+}

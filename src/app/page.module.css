@@ -11,8 +11,8 @@
   align-items: center;
   justify-items: center;
   min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
+  padding: 40px;
+  gap: 24px;
   font-family: var(--font-geist-sans);
 }
 
@@ -30,9 +30,63 @@
 .main {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  width: 100%;
+  max-width: 1200px;
   grid-row-start: 2;
 }
+
+.header {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.header h1 {
+  margin-bottom: 8px;
+  font-size: 2rem;
+}
+
+.header p {
+  color: #666;
+  font-size: 1rem;
+}
+
+.container {
+  display: flex;
+  gap: 32px;
+  width: 100%;
+}
+
+.treeContainer {
+  width: 40%;
+  min-width: 300px;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: var(--gray-alpha-100);
+}
+
+.treeContainer h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+}
+
+.fileContent {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+.fileContent h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+}
+
+.file-content {
+  width: 100%;
+  height: 100%;
+}
+
 
 .main ol {
   font-family: var(--font-geist-mono);

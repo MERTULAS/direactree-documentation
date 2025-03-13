@@ -5,7 +5,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #b6b6b6;
     --foreground: #ededed;
   }
 }
@@ -40,3 +40,14 @@ a {
     color-scheme: dark;
   }
 }
+
+.anticon {
+  font-size: 16px;
+}
+
+.anticon {
+  color: #000000;
+  margin: 10px;
+}
+
+
