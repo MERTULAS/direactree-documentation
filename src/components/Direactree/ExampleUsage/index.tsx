@@ -1,8 +1,8 @@
 "use client";
+
 import styles from "@/app/page.module.css";
 import { useState } from "react";
 import Direactree, { DireactreeProps, NodePath, SaveProps, TreeNode } from "direactree";
-import { FolderAddOutlined, FileAddOutlined } from "@ant-design/icons";
 
 const ClientDireactree = Direactree as unknown as React.ComponentType<DireactreeProps>;
 
@@ -235,10 +235,10 @@ export default function ExampleUsage() {
     }
   };
 
-  const handleSelectedNodeChange = (node: NodePath) => {
+  const handleSelectedNodeChange = (node: NodePath | null) => {
     setSelectedFile(node);
 
-    if (node.type === 'file') {
+    if (node?.type === 'file') {
       fetch(`/api/file?fileName=${node.id}`)
         .then(response => response.text())
         .then(data => setFileContent(data))
@@ -298,22 +298,6 @@ export default function ExampleUsage() {
     <div>
       <h2>Direactree Example Usage</h2>
       <p>This example shows the example usage of the Direactree component.</p>
-      <h3>Direactree Features</h3>
-      <ul>
-        <li>Create Folder anywhere in the tree</li>
-        <li>Create File anywhere in the tree</li>
-        <li>Rename file or folder anywhere in the tree</li>
-        <li>Delete file or folder anywhere in the tree</li>
-        <li>Move file or folder anywhere in the tree</li>
-      </ul>
-
-      <h3><b>NOTE:</b> Directree guarantees the following:</h3>
-      <ul>
-        <li>Folder or file can't move to itself</li>
-        <li>Folders can't move to its children</li>
-        <li>Folders or files can't create in the file</li>
-      </ul>
-
       <div className={styles.container}>
         <div className={styles.treeContainer}>
           <h2>File Explorer</h2>
@@ -327,10 +311,6 @@ export default function ExampleUsage() {
             onRename={handleRename}
             onDelete={handleDelete}
             onSave={handleSave}
-            toolboxIcons={{
-              createFolder: <FolderAddOutlined />,
-              createFile: <FileAddOutlined />
-            }}
             toolboxSticky={true}
             onNodeMove={handleNodeMove}
             isAllExpanded={true}
@@ -338,7 +318,7 @@ export default function ExampleUsage() {
         </div>
 
         <div className={styles.fileContent}>
-          <h2>Selected Node Name: {selectedFile ? selectedFile.name : 'File not selected'}</h2>
+          <h2>Selected Node Name: {selectedFile ? selectedFile.name : 'File not selected!'}</h2>
           <pre
             style={{
               width: '100%',
@@ -346,8 +326,15 @@ export default function ExampleUsage() {
               height: '95%',
               borderRadius: '10px',
               padding: '10px',
-              backgroundColor: 'black',
               overflowY: 'auto',
+              boxShadow: 'inset 0 1px 5px rgba(0, 0, 0, 0.05)',
+              border: '1px solid #e1e4e8',
+              fontSize: '14px',
+              lineHeight: '1.6',
+              color: 'white',
+              backgroundColor: '#1e1e2e',
+              borderColor: '#313244',
+              fontFamily: "'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace"
             }}
           >
             {fileContent || 'File content will be displayed here...'}
