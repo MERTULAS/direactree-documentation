@@ -3,8 +3,6 @@
   border-radius: 8px;
   padding: 20px;
   margin: 0;
-  white-space: pre-wrap;
-  word-wrap: break-word;
   line-height: 1.6;
   font-size: 14px;
   color: #333;
@@ -13,6 +11,7 @@
   border: 1px solid #e1e4e8;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  overflow-x: auto;
 }
 
 .json-printer:hover {

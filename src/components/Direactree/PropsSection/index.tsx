@@ -47,7 +47,8 @@ const PropsSection = () => {
   const [selectedNode, setSelectedNode] = useState<NodePath | null>(null);
   const [sourceNode, setSourceNode] = useState<TreeNode | null>(null);
   const [targetNode, setTargetNode] = useState<TreeNode | null>(null);
-
+  const [parentNode, setParentNode] = useState<NodePath | null>(null);
+  const [saveProps, setSaveProps] = useState<SaveProps | null>(null);
 
   const toolboxIcons = {
     createFolder: <FolderAddOutlined />,
@@ -66,6 +67,25 @@ const PropsSection = () => {
     setTargetNode(targetNode);
   };
 
+  const handleCreateFolder = (parentNode: NodePath | null) => {
+    setParentNode(parentNode);
+  };
+
+  const handleCreateFile = (parentNode: NodePath | null) => {
+    setParentNode(parentNode);
+  };
+
+  const handleRename = (node: NodePath | null) => {
+    setParentNode(node);
+  };
+
+  const handleDelete = (node: NodePath | null) => {
+    setParentNode(node);
+  };
+
+  const handleSave = (saveProps: SaveProps | null) => {
+    setSaveProps(saveProps);
+  };
 
 
   return (
@@ -123,7 +143,7 @@ const PropsSection = () => {
         </div>
         <p>Example:</p>
         <pre className="code-example"><code>{
-        `
+          `
   const [selectedNode, setSelectedNode] = useState<NodePath | null>(null);
   
   const handleSelectedNodeChange = (node: NodePath | null) => {
@@ -133,6 +153,7 @@ const PropsSection = () => {
   <Direactree structure={structure} onSelectedNodeChange={handleSelectedNodeChange} />
       `}</code></pre>
         <h3 className='try-it'>Try it!</h3>
+        <p>-&gt; Select a node and click on it to see the changes.</p>
         <div className='example-container'>
           <div className='code-block'>
             <span>selectedNode</span> =
@@ -172,7 +193,7 @@ const PropsSection = () => {
         </div>
         <p>Example:</p>
         <pre className="code-example"><code>{
-        `
+          `
   const [sourceNode, setSourceNode] = useState<TreeNode | null>(null);
   const [targetNode, setTargetNode] = useState<TreeNode | null>(null);
 
@@ -184,6 +205,7 @@ const PropsSection = () => {
   <Direactree structure={structure} onNodeMove={handleNodeMove} />
       `}</code></pre>
         <h3 className='try-it'>Try it!</h3>
+        <p>-&gt; Select a node and move it to another node to see the changes.</p>
         <div className='example-container'>
           <div className='code-block'>
             <span>sourceNode</span> =
@@ -195,6 +217,116 @@ const PropsSection = () => {
           </div>
           <div>
             <ClientDireactree structure={structure} onNodeMove={handleNodeMove} />
+          </div>
+        </div>
+      </div>
+
+
+      <div className="prop-card">
+        <h3>onCreateFolder, onCreateFile, onRename, onDelete</h3>
+        <p>The <b>onCreateFolder</b> prop is a function that is called when the user creates a folder in a selected node.</p>
+        <p>The <b>onCreateFile</b> prop is a function that is called when the user creates a file in a selected node.</p>
+        <p>The functions above receives the parent node as an argument.</p>
+        <p>The <b>onRename</b> prop is a function that is called when the user renames a selected node.</p>
+        <p>The <b>onDelete</b> prop is a function that is called when the user deletes a selectednode.</p>
+        <p>The functions above receives the selected node as an argument.</p>
+
+        <h3>NOTE:</h3>
+        <ul>
+          <li>If the user not select any node, the function (<b>onCreateFolder</b>, <b>onCreateFile</b>) will receive <code>null</code> as an argument and the new node will be created at the root of the tree.</li>
+        </ul>
+
+        <div>Type: <code>{`(parentNode: NodePath) => void`}</code>
+          <p>NodePath</p>
+          <div className='code-block'>
+            <JSONPrinter data={
+              {
+                "name": 'string',
+                "id": 'string',
+                "type": 'file | folder',
+                "parent": 'NodePath | null'
+              }
+            }
+            />
+          </div>
+        </div>
+        <p>Example:</p>
+        <pre className="code-example"><code>{
+          `
+  const [parentNode, setParentNode] = useState<NodePath | null>(null);
+
+  const handleCreateFolder = (parentNode: NodePath | null) => {
+    setParentNode(parentNode);
+  };
+
+  const handleCreateFile = (parentNode: NodePath | null) => {
+    setParentNode(parentNode);
+  };
+
+  const handleRename = (node: NodePath | null) => {
+    setParentNode(node);
+  };  
+
+  const handleDelete = (node: NodePath | null) => {
+    setParentNode(node);
+  };
+
+  <Direactree structure={structure} onCreateFolder={handleCreateFolder} onCreateFile={handleCreateFile} onRename={handleRename} onDelete={handleDelete} />
+      `}</code></pre>
+        <h3 className='try-it'>Try it!</h3>
+        <p>-&gt; Select a node and click on the toolbox icons to see the changes.</p>
+        <div className='example-container'>
+          <div className='code-block'>
+            <span>parentNode</span> =
+            <JSONPrinter data={parentNode || 'null'} />
+          </div>
+          <div>
+            <ClientDireactree structure={structure} onCreateFolder={handleCreateFolder} onCreateFile={handleCreateFile} onRename={handleRename} onDelete={handleDelete} />
+          </div>
+        </div>
+      </div>
+
+
+      <div className="prop-card">
+        <h3>onSave</h3>
+        <p>The <b>onSave</b> prop is a function that is called when the user clicks on the save button on the editable area.</p>
+        <p>The function receives the save props as an argument.</p>
+
+        <div>Type: <code>{`(saveProps: SaveProps) => void`}</code>
+          <p>SaveProps</p>
+          <div className='code-block'>
+            <JSONPrinter data={
+              {
+                newName: 'string',
+                selectedNode: 'NodePath | null',
+                actionType: 'create | edit',
+                createType: 'folder | file'
+              }
+            }
+            />
+          </div>
+          <p><b>NodePath</b> as you know.</p>
+        </div>
+        <p>Example:</p>
+        <pre className="code-example"><code>{
+          `
+  const [saveProps, setSaveProps] = useState<SaveProps | null>(null);
+
+  const handleSave = (saveProps: SaveProps | null) => {
+    setSaveProps(saveProps);
+  };
+
+  <Direactree structure={structure} onSave={handleSave} />
+      `}</code></pre>
+        <h3 className='try-it'>Try it!</h3>
+        <p>-&gt; Select a node, and click on the toolbox, fill the input and click on the save button to see the changes.</p>
+        <div className='example-container'>
+          <div className='code-block'>
+            <span>saveProps</span> =
+            <JSONPrinter data={saveProps || 'null'} />
+          </div>
+          <div>
+            <ClientDireactree structure={structure} onSave={handleSave} />
           </div>
         </div>
       </div>
