@@ -78,6 +78,11 @@ export default function ExampleUsage() {
             },
           ],
         },
+        {
+          id: 'DireactreeUsage.tsx',
+          name: 'DireactreeUsage.tsx',
+          type: 'file'
+        }
       ]
     }]);
 
@@ -324,6 +329,7 @@ export default function ExampleUsage() {
             style={{
               width: '100%',
               minHeight: '400px',
+              maxHeight: '800px',
               height: '95%',
               borderRadius: '10px',
               padding: '10px',

@@ -1,4 +1,0 @@
-This is a sample text file.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Sample text content with some example data.
-The test file content ends here.
