@@ -7,7 +7,7 @@ interface JSONPrinterProps {
 }
 
 const JSONPrinter: React.FC<JSONPrinterProps> = ({ data, indent = 2 }) => {
-  const renderValue = (value: any): JSX.Element => {
+  const renderValue = (value: any): React.ReactElement => {
     if (value === null) {
       return <span className="json-null">null</span>;
     }
@@ -52,7 +52,7 @@ const JSONPrinter: React.FC<JSONPrinterProps> = ({ data, indent = 2 }) => {
     return <span>{String(value)}</span>;
   };
 
-  const renderObject = (obj: Record<string, any>): JSX.Element => {
+  const renderObject = (obj: Record<string, any>): React.ReactElement => {
     const entries = Object.entries(obj);
     
     return (

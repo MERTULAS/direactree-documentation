@@ -240,7 +240,7 @@ export default function ExampleUsage() {
     setSelectedFile(node);
 
     if (node?.type === 'file') {
-      fetch(`/api/file?fileName=${node.id}`)
+      fetch(`/mock-data/${node.id}`)
         .then(response => response.text())
         .then(data => setFileContent(data))
         .catch(error => {
