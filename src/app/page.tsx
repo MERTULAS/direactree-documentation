@@ -33,6 +33,21 @@ export default function Home() {
           <li>Folders can't move to its children</li>
           <li>Folders or files can't create in the file</li>
         </ul>
+
+        <h3><b>NOTE:</b> For Next.js 13 and later versions:</h3>
+        <p>In Next.js 13 and later versions, all components are considered Server Components by default. Since Direactree is a Client Component, you have two different usage methods:</p>
+        <ul>
+          <li>1. Using Special Next.js Import (Recommended)</li>
+          <pre className="code-example"><code>import Direactree from "direactree/next";</code></pre>
+          <li>2. Using Default Import</li>
+          <pre className="code-example"><code>{`
+"use client"
+
+import Direactree from "direactree";
+          `}
+          </code></pre>
+        </ul>
+
         <ExampleUsage />
         <PropsSection />
       </main>
