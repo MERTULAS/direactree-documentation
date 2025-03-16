@@ -68,7 +68,7 @@ export default function ExampleUsage() {
                   type: 'folder',
                   children: [
                     {
-                      id: '2.1.1.1',
+                      id: 'REST-API.md',
                       name: 'REST-API.md',
                       type: 'file',
                     }
