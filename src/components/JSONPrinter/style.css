@@ -103,3 +103,10 @@
     color: #cdd6f4;
   }
 }
+
+@media (max-width: 600px) {
+  .json-printer {
+    font-size: 12px;
+    width: 100%;
+  }
+}

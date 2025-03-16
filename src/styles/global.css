@@ -129,7 +129,7 @@ li {
 .props-section {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding-top: 2rem;
 }
 
 .prop-card {
@@ -221,4 +221,24 @@ li {
 
 .ant-switch-checked {
   background-color: var(--primary-color) !important;
+}
+
+@media (max-width: 600px) {
+  .props-section {
+    width: calc(100vw - 80px);
+  }
+
+  .props-section .prop-card {
+    padding: 1rem;
+  }
+
+  .props-section .code-block {
+    background-color: #f8f9fa;
+    padding: 0;
+    width: 100%;
+  }
+
+  .props-section .example-container > div {
+    min-width: 100%;
+  }
 }

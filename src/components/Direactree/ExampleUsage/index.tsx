@@ -301,7 +301,7 @@ export default function ExampleUsage() {
   };
 
   return (
-    <div>
+    <div className={styles.exampleUsage}>
       <h2>Direactree Example Usage</h2>
       <p>This example shows the example usage of the Direactree component.</p>
       <div className={styles.container}>
@@ -329,7 +329,7 @@ export default function ExampleUsage() {
             style={{
               width: '100%',
               minHeight: '400px',
-              maxHeight: '800px',
+              maxHeight: '735px',
               height: '95%',
               borderRadius: '10px',
               padding: '10px',
