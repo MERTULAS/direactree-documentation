@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from "react";
 import { NodePath, SaveProps, TreeNode } from "direactree";
 import Direactree from "direactree";
@@ -290,8 +292,8 @@ export default function ExampleUsage() {
     <div>
       <h2>Direactree Example Usage</h2>
       <p>This example shows the example usage of the Direactree component.</p>
-      <div className={styles.container}>
-        <div className={styles.treeContainer}>
+      <div>
+        <div>
           <h2>File Explorer</h2>
           <Direactree
             onSelectedNodeChange={handleSelectedNodeChange}
@@ -309,7 +311,7 @@ export default function ExampleUsage() {
           />
         </div>
 
-        <div className={styles.fileContent}>
+        <div>
           <h2>Selected Node Name: {selectedFile ? selectedFile.name : 'File not selected!'}</h2>
           <pre
             style={{
